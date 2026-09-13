@@ -40,7 +40,7 @@ Existem diversos algoritmos para resolvê-lo. Os mais conhecidos são:
 Walaber usa um algoritmo de traçado de raios (conta o número de cruzamentos) em seu sistema de detecção de colisão em seu jogo JellyCar. Neste texto apresentarei um algoritmo baseado no Número de Voltas, proposto por Dan Sunday, por ser simples de implementar, eficiente e adequado ao meu problema.
 
 ## Algoritmo do Número de Voltas
-Considere um ponto *q* qualquer, um polígono P representado por seus vértices ordenados \\(P={v_0,v_1,\ldots,v_{n-1}}\\), onde \\(v_n=v_0\\), de forma que cada par consecutivo de vértices define uma aresta do polígono e o número de voltas \\(wn)\\.
+Considere um ponto *q* qualquer, um polígono P representado por seus vértices ordenados \\(P={v_0,v_1,\ldots,v_{n-1}}\\), onde \\(v_n=v_0\\), de forma que cada par consecutivo de vértices define uma aresta do polígono e o número de voltas \\(wn\\).
 
 A ideia do algoritmo é bastante simples. Traça-se uma semirreta horizontal partindo do ponto *q* para a direita. Em seguida percorremos todas as arestas do polígono, observando como elas cruzam essa semirreta.
 
@@ -76,6 +76,8 @@ function windingNumber(Q, P)
                 wn--
     return wn
 ```
+
+Repare que a semireta horizontal partindo do ponto *q* para direita é virtual, testar se o ponto *q* está à esquerda é o suficiente.
 
 Como cada aresta é analisada exatamente uma vez, a complexidade do algoritmo é O(n), onde n é o número de vértices do polígono. No meu caso, o número de vértices do polígono de seleção costuma ser pequeno, tornando essa solução extremamente simples e suficientemente eficiente.
 
